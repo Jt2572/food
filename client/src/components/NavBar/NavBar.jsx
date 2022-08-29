@@ -1,8 +1,4 @@
-import React, { useState } from 'react';
-import { BsCart2 } from 'react-icons/bs';
-import { FiLogOut } from 'react-icons/fi';
-import { NavLink, useHistory } from "react-router-dom";
-import logo from '../../assets/logo2.png';
+import React from 'react';
 import background from '../../assets/foodlanding.png'
 
 
