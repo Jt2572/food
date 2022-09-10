@@ -21,8 +21,10 @@ module.exports = {
         },
       }
     },
-    fontFamily: {
-      comforta: ['Fantasy', 'cursive'],
+    fontFamily: {      
+      bgs: ['Bell Gothic Std', 'serif'],
+      dancing: ['Dancing Script'],
+      castle: ['Castle', 'serif'],
     },
   },
   plugins: [],
