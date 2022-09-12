@@ -19,12 +19,16 @@ module.exports = {
           800: '#082A34',
           900: '#000303',
         },
+      },
+      boxShadow: {
+        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
       }
     },
     fontFamily: {      
       bgs: ['Bell Gothic Std', 'serif'],
       dancing: ['Dancing Script'],
       castle: ['Castle', 'serif'],
+      nova:['NovaMono', 'sans-serif']
     },
   },
   plugins: [],
