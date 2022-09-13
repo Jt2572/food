@@ -11,10 +11,10 @@ function Recipes() {
   }, [dispatch])
   console.log(recipes)
   return (
-    <div className="flex justify-center p-4">
+    <div className="md:flex-row md:justify-center sm:flex sm:flex-col ">
       {recipes && recipes.map((elem, i) => {
         return (
-          <div key={i}>
+          <div className="mx-32 my-4 sm:m-4" key={i}>
             <div className="w-56 h-68  shadow-lg shadow-current">
               <img src={elem.image} alt="..." />
               <div className="p-5">
