@@ -11,7 +11,7 @@ function Recipes() {
   }, [dispatch])
   console.log(recipes)
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center p-4">
       {recipes && recipes.map((elem, i) => {
         return (
           <div key={i}>
