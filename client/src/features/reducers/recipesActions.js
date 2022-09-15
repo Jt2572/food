@@ -4,6 +4,7 @@ import { getAllRecipes } from "../reducers/recipesSlice.js";
 export const getRecipes=()=>(dispatch)=>{
     // axios("https://rickandmortyapi.com/api/character")
     axios("https://apifood.herokuapp.com/recipes")
+    // axios("http://localhost:3001/recipes")
     .then(res=>dispatch(getAllRecipes(res.data)))
     .catch(e=>console.log(e))
 }
