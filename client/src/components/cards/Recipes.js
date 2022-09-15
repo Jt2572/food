@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipes } from "../../features/reducers/recipesActions";
 
@@ -6,34 +6,80 @@ function Recipes() {
   const dispatch = useDispatch()
   const { recipes } = useSelector(state => state.recipes)
 
+  const [page, setPage] = useState(1);
+  const recipesPerPage = 9;
+  const end = page * recipesPerPage;
+  const start = end - recipesPerPage;
+  const currentRecipes = recipes?.slice(start, end);
+  const totalPages = Math.ceil(recipes.length / recipesPerPage)
+
+
   useEffect(() => {
     dispatch(getRecipes())
   }, [dispatch])
   console.log(recipes)
+
+  const pages = []
+  for (var i = 1; i <= totalPages; i++) {
+    pages.push(i);
+  }
+
+  const handleClick = (e) => {
+    setPage(e.target.id)
+  }
+
+  const renderPages = pages.map(numb => {
+    return (
+      <div key={numb} className='m-1 text-xs bg-yellow-900 text-amber-50 cursor-pointer border rounded-md h-5 w-6 flex justify-center'
+        id={numb} onClick={handleClick}>
+        {numb}
+      </div>
+    )
+  })
+
+
   return (
-    <div className="flex justify-center ">
 
-
+    <div className="flex flex-col items-center  ">
 
       <div className="grid grid-cols-1 sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-        {recipes && recipes.map((elem, i) => {
+        {currentRecipes && currentRecipes.map((elem, i) => {
+
+
           return (
-            <div className="mx-32 my-4 sm:m-4" key={i}>
-              <div className="w-56 h-68  shadow-lg shadow-current">
+            <div className="mx-32 my-4 sm:m-3 " key={i}>
+              <div className="w-56 h-full  shadow-lg shadow-current ">
                 <img src={elem.image} alt={elem.name} />
-                <div className="p-5">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">{elem.name}</h5>
-                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{elem.diet.map(d => d)}</p>
-                  <a href="/home" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Details
-                    <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                  </a>
+                <div className="p-4 grid grid-cols-1 gap-0 place-content-around h-44 ">
+                  <h5 className=" text-yellow-900 leading-4 text-center mb-2 font-semibold tracking-tight  ">{elem.name}</h5>
+                  <div className=" border border-yellow-900 p-1 rounded-full text-yellow-900 text-center text-xs leading-3 flex justify-center   " >
+                    {elem.diet.map(d => 
+                      `${d}, `
+                      ) }
+                      
+                      
+                  </div>
+            
+
+            <div className="flex justify-center pt-4">
+                  
+                  <button type="button" className="flex justify-center items-center py-1 text-xs px-3 ml-2   text-amber-50 rounded-lg  bg-yellow-900 hover:bg-gradient-to-bl focus:outline-none">
+                    Details  <svg aria-hidden="true" className="ml-2 -mr-1 w-3 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+            </div >
                 </div>
               </div>
             </div>
           )
         })
         }
+
+
+
+      </div>
+      <div value={page} className='flex justify-center p-4'>
+
+        {renderPages}
 
       </div>
     </div>
