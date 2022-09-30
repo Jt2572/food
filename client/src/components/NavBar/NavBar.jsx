@@ -11,7 +11,7 @@ const navbarData = [
   },
   {
     id: 2,
-    title: "Create Recipe",
+    title: "Recipe",
     to: "/createrecipe",
   },
 ];
