@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createRec, getAllDiets } from '../../features/reducers/recipesActions';
-import { validarInputText } from '../../assets/validate.js'
+
 
 
 import Header from "../header/Header";
@@ -71,7 +71,7 @@ function CreateRecipe() {
         }
     };
 
-    useEffect(() => {
+    useEffect((dispatch) => {
         dispatch(getAllDiets())
     }, [])
     // console.log('Input ', Input)
