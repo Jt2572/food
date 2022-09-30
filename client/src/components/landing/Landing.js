@@ -31,7 +31,7 @@ export default function Landing () {
                       </p>
                     </div>
   
-                    <div className='m-2' >
+                    <div className='mt-2 flex justify-center' >
                       <svg version="1.0" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         width="199.116px" height="16.352px" viewBox="0 0 199.116 16.352" enable-background="new 0 0 199.116 16.352">
                         <polygon id="XMLID_6840_" fill="#e4d8cb" points="199.116,16.352 0,16.352 6.815,8.176 0,0 199.116,0 192.315,8.176 " />
