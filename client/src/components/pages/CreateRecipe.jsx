@@ -87,7 +87,7 @@ function CreateRecipe() {
                 summary: '',
                 instructions: '',
                 image: '',
-                diets: []
+                dietTypes: []
             });
             window.location.reload();
             alert("recipe created !");
