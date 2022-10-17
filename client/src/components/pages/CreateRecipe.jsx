@@ -62,18 +62,19 @@ function CreateRecipe() {
                 ...Input,
                 dietTypes: [...Input.dietTypes, e.target.value],
             });
+        // console.log(e.target.value)
         } else if (!e.target.checked) {
             setInput({
                 ...Input,
-                dietTypes: Input.dietTypes.filter((d) => d !== e.target.value),
+                dietTypes: [],
             });
             
         }
     };
 
-    useEffect((dispatch) => {
+    useEffect(()=> {
         dispatch(getAllDiets())
-    }, [])
+    }, [dispatch])
     // console.log('Input ', Input)
 
     let handleSubmit = (e) => {
@@ -81,15 +82,16 @@ function CreateRecipe() {
         if (Input.name && !Object.keys(Error).length) {
             console.log(Input)
             dispatch(createRec(Input));
-            setInput({
-                name: '',
-                score: '',
-                summary: '',
-                instructions: '',
-                image: '',
-                dietTypes: []
-            });
-            window.location.reload();
+            console.log(Input)
+            // setInput({
+            //     name: '',
+            //     score: '',
+            //     summary: '',
+            //     instructions: '',
+            //     image: '',
+            //     dietTypes: []
+            // });
+            // window.location.reload();
             alert("recipe created !");
         } else {
             alert("... field required");
@@ -106,15 +108,15 @@ function CreateRecipe() {
                 <div className="flex justify-center  p-8 text-yellow-900 text-2xl font-semibold"> Create Recipe  </div>
 
                 <div className="flex justify-center ">
-                    <div class="p-5 w-[25rem] shadow-lg shadow-current ">
+                    <div className="p-5 w-[25rem] shadow-lg shadow-current ">
                         <form className=' items-center w-84 '>
 
-                            <div class="form-group flex flex-row  items-center justify-between pt-2">
+                            <div className="form-group flex flex-row  items-center justify-between pt-2">
                                 <label className=' text-yellow-900 font-medium text-sm'>Name</label>
                                 <input
                                     type="text"
                                     className="form-control  block w-72 px-2 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    key='name'
+                                    key={Input.name}
                                     name='name'
                                     autoComplete="off"
                                     value={Input.name}
@@ -125,12 +127,12 @@ function CreateRecipe() {
 
 
                             <div>
-                                <div class="form-group flex flex-row  items-center justify-between pt-2">
+                                <div className="form-group flex flex-row  items-center justify-between pt-2">
                                     <label className=' text-yellow-900 font-medium text-sm'>Summary</label>
                                     <input
                                         type="text"
                                         className="form-control  block w-72 px-2 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                        key='summary'
+                                        key={Input.name}
                                         name='summary'
                                         autoComplete="off"
                                         value={Input.summary}
@@ -142,12 +144,12 @@ function CreateRecipe() {
                             </div>
 
 
-                            <div class="form-group flex flex-row  items-center justify-between pt-2">
+                            <div className="form-group flex flex-row  items-center justify-between pt-2">
                                 <label className=' text-yellow-900 font-medium text-sm'>Image</label>
                                 <input
                                     type="text"
                                     className="form-control  block w-72 px-2 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    key='image'
+                                    key={Input.name}
                                     id='image'
                                     name='image'
                                     autoComplete="off"
@@ -157,7 +159,7 @@ function CreateRecipe() {
                             </div>
                             {Error.image && <p className="text-xs text-center text-red-500" >{Error.image}</p>}
 
-                            <div class="form-group flex flex-row  items-center justify-between pt-2">
+                            <div className="form-group flex flex-row  items-center justify-between pt-2">
                                 <label className=' text-yellow-900 font-medium text-sm tracking-tighter'>Instructions</label>
                                 <textarea
                                     className="form-control block w-72 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded  transition  ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlTextarea13"
@@ -170,7 +172,7 @@ function CreateRecipe() {
                             </div>
                             {Error.instructions && <p className="text-xs text-center text-red-500">{Error.instructions}</p>}
 
-                            <div class="form-group flex flex-row  items-center justify-between pt-2">
+                            <div className="form-group flex flex-row  items-center justify-between pt-2">
                                 <label className=' text-yellow-900 font-medium text-sm'>Score</label>
                                 <div className='w-72 flex justify-center'>
                                     <input
@@ -185,7 +187,7 @@ function CreateRecipe() {
                             </div>
                             {Error.score && <p className="text-xs text-center text-red-500">{Error.score}</p>}
 
-                            <div class="form-group flex flex-row  items-center justify-between pt-2">
+                            <div className="form-group flex flex-row  items-center justify-between pt-2">
                                 <label className=' text-yellow-900 font-medium text-sm tracking-tighter'>Diets</label>
                                 <br />
                                 <div className='w-72 grid grid-cols-2 gap-0 '>

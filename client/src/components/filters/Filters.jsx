@@ -52,7 +52,7 @@ function Filters() {
           <div className="mx-16 flex justify-center   ">
 
             <div className="m-2 text-yellow-900 text-xs  py-1 border border-yellow-900 rounded-full w-36 text-center flex justify-center ">
-              <select  onChange={handleFilterDiets} className="placeholder-gray-500 " >
+              <select  onChange={handleFilterDiets} className="placeholder-gray-500" id="selectdiets" >
                 <option disabled selected>DIETS</option>
                 <option value='all' >all</option>
 
@@ -66,7 +66,7 @@ function Filters() {
 
 
             <div className="m-2 text-yellow-900 text-xs px-4 py-1 border border-yellow-900 rounded-full w-20 text-center flex justify-center ">
-              <select onChange={handlefilterName} className="placeholder-gray-500 " >
+              <select onChange={handlefilterName} className="placeholder-gray-500" id="selectnames">
                 <option value="all" disabled selected>NAME</option>
                 <option value='asc'>A-Z</option>                
                 <option value="des" >Z-A</option>

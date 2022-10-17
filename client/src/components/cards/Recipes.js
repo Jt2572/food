@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipes } from "../../features/reducers/recipesActions";
+import { Link } from "react-router-dom";
+import { getRecipes, searchRecipeId } from "../../features/reducers/recipesActions";
 
 function Recipes() {
   const dispatch = useDispatch()
@@ -15,15 +16,10 @@ function Recipes() {
   try {
 
     currentRecipes = recipes?.slice(start, end);
-    console.log('currentRecipes ', typeof (currentRecipes[0]))
+    
   } catch (error) {
     console.log(error.message)
-  }
-
-
-
-
-  // console.log('recipes ',recipes[0].name)
+  }  
 
   useEffect(() => {
     dispatch(getRecipes())
@@ -49,7 +45,9 @@ function Recipes() {
     )
   })
 
-
+  const handleDetails = (id)=>{
+    dispatch(searchRecipeId(id))
+  }
   return (
 
     <div className="flex flex-col items-center  ">
@@ -67,16 +65,19 @@ function Recipes() {
                   <div className="p-4 grid grid-cols-1 gap-0 place-content-around h-44 ">
                     <h5 className=" text-yellow-900 leading-4 text-center mb-2 font-semibold tracking-tight  ">{elem.name}</h5>
 
-                    {/* <div className=" border border-yellow-900 p-1 rounded-full text-yellow-900 text-center text-xs leading-3 flex justify-center   " >
+                    <div className=" border border-yellow-900 p-1 rounded-full text-yellow-900 text-center text-xs leading-3 flex justify-center   " >
                       {elem.dietTypes.map(d =>
                         `${d}, `
                       )}
-                    </div> */}
+                    </div>
 
                     <div className="flex justify-center pt-4">
-                      <button type="button" className="flex justify-center items-center py-1 text-xs px-3 ml-2   text-amber-50 rounded-lg  bg-yellow-900 hover:bg-gradient-to-bl focus:outline-none">
-                        Details  <svg aria-hidden="true" className="ml-2 -mr-1 w-3 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                      <Link to = {"/details" } > 
+                      
+                      <button type="button" className="flex justify-center items-center py-1 text-xs px-3 ml-2   text-amber-50 rounded-lg  bg-yellow-900 hover:bg-gradient-to-bl focus:outline-none" onClick={()=>handleDetails(elem.id)}>
+                        Details  <svg aria-hidden="true" className="ml-2 -mr-1 w-3 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                       </button>
+                      </Link>
                     </div >
                   </div>
                 </div>

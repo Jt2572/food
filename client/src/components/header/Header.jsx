@@ -6,7 +6,7 @@ function Header() {
         <div className="bg-yellow-900 col items-center justify-around py-2 flex flex-col md:flex-row  xl " >
             <div className="flex items-center">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    width="50px" viewBox="0 0 336 354.535" enable-background="new 0 0 336 354.535" >
+                    width="50px" viewBox="0 0 336 354.535" enableBackground="new 0 0 336 354.535" >
                     <path fill="#fffbeb" d="M167.731,313.613c-77.197,0-140.007-61.164-140.007-136.344c0-75.184,62.81-136.351,140.007-136.351
 	c77.203,0,140.007,61.167,140.007,136.351C307.738,252.449,244.934,313.613,167.731,313.613 M167.731,55.165
 	c-69.134,0-125.38,54.775-125.38,122.104c0,67.324,56.246,122.1,125.38,122.1c69.132,0,125.382-54.775,125.382-122.1
