@@ -7,6 +7,7 @@ export const recipesSlice = createSlice({
   initialState: {
     recipes: [],
     filterRecipes: [],
+    recipesId: [],
     diets: [],
     loading: false,
   },
@@ -18,6 +19,10 @@ export const recipesSlice = createSlice({
     },
     searchRecipes: (state, action) => {
       state.recipes = action.payload;
+    },
+    searchRecipeById: (state, action) => {
+      console.log(action.payload)
+      state.recipesId = action.payload;
     },
     getDiets: (state, action) => {
       state.diets = action.payload;
@@ -75,6 +80,6 @@ export const recipesSlice = createSlice({
 
 });
 
-export const { getAllRecipes, searchRecipes, getDiets, toggleLoadingRecipes, filterTypes, filterByName, filterByOrder } = recipesSlice.actions
+export const { getAllRecipes, searchRecipes, getDiets, toggleLoadingRecipes, filterTypes, filterByName, filterByOrder, searchRecipeById } = recipesSlice.actions
 
 export default recipesSlice.reducer;
