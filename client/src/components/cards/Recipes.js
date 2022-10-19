@@ -65,11 +65,11 @@ function Recipes() {
                   <div className="p-4 grid grid-cols-1 gap-0 place-content-around h-44 ">
                     <h5 className=" text-yellow-900 leading-4 text-center mb-2 font-semibold tracking-tight  ">{elem.name}</h5>
 
-                    <div className=" border border-yellow-900 p-1 rounded-full text-yellow-900 text-center text-xs leading-3 flex justify-center   " >
+                    {/* <div className=" border border-yellow-900 p-1 rounded-full text-yellow-900 text-center text-xs leading-3 flex justify-center   " >
                       {elem.dietTypes.map(d =>
                         `${d}, `
                       )}
-                    </div>
+                    </div> */}
 
                     <div className="flex justify-center pt-4">
                       <Link to = {"/details" } > 
