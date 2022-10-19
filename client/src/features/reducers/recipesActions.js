@@ -6,15 +6,16 @@ import { getAllRecipes, searchRecipes, getDiets, searchRecipeById  } from "../re
 export const getRecipes = () => (dispatch) => {
     // axios("https://rickandmortyapi.com/api/character")
     // axios("https://apifood.herokuapp.com/recipes")
-    axios("http://localhost:3001/recipes")
+    axios("https://api-food2.herokuapp.com/recipes")
+    // axios("http://localhost:3001/recipes")
         .then(res => { dispatch(getAllRecipes(res.data)) })
         .catch(e => console.log(e))
 }
 
 export const searchRecipeName = (recipe) => (dispatch) => {
     // axios("https://rickandmortyapi.com/api/character")
-    axios(`http://localhost:3001/recipes?name=${recipe}`)
-    // axios(`https://apifood.herokuapp.com/recipes?name=${recipe}`)
+    // axios(`http://localhost:3001/recipes?name=${recipe}`)
+    axios(`https://api-food2.herokuapp.com/recipes?name=${recipe}`)
         // axios("http://localhost:3001/recipes")
         .then(res => { console.log(res); dispatch(searchRecipes(res.data)) })
         .catch(e => console.log(e))
@@ -22,7 +23,7 @@ export const searchRecipeName = (recipe) => (dispatch) => {
 
 export const searchRecipeId = (id) => (dispatch) => {
     // axios("https://rickandmortyapi.com/api/character")
-    axios(`http://localhost:3001/recipes/${id}`)
+    axios(`https://api-food2.herokuapp.com/recipes/${id}`)
     // axios(`https://apifood.herokuapp.com/recipes?name=${recipe}`)
         // axios("http://localhost:3001/recipes")
         .then(res => { console.log(res.data); dispatch(searchRecipeById([res.data])) })
@@ -33,7 +34,7 @@ export const searchRecipeId = (id) => (dispatch) => {
 export const getAllDiets = () => (dispatch) => {
     // axios("https://rickandmortyapi.com/api/character")
     // axios("https://apifood.herokuapp.com/recipes")
-    axios("http://localhost:3001/types")
+    axios("https://api-food2.herokuapp.com/types")
         .then(res => { dispatch(getDiets(res.data)) })
         .catch(e => console.log(e))
 }
@@ -42,7 +43,7 @@ export const createRec = (payload) => {
     return async () => {
         try {
             await axios.post(
-                "http://localhost:3001/createrecipe",
+                "https://api-food2.herokuapp.com/createrecipe",
                 payload
             );
 
