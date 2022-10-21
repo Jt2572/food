@@ -9,14 +9,14 @@ import Header from "../header/Header";
 
 
 export function validate(Input) {
-    let error = {}
     let validateName = /^[a-zA-Z\s]+$/;
-    let validateUrl = /^(?:http(s)?:\/\/)?[\w.-]+(?:.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/;
+    // let validateUrl = /^(?:http(s)?:\/\/)?[\w.-]+(?:.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/;
+    var error = {}
 
     !validateName.test(Input.name) && (error.name = "special characters not  allowed")
     !Input.summary.length && (error.summary = "empty field not allowedy");
     Input.summary.length < 40 && (error.summary = "minimum characters 40");
-    !validateUrl.test(Input.image) && (error.image = "special characters not  allowed")
+    // !validateUrl.test(Input.image) && (error.image = "special characters not  allowed")
     !Input.instructions.length && (error.instructions = "empty field not allowedy");
     Input.instructions.length < 80 && (error.instructions = "minimum characters 80");
     (Input.score <= 0 || Input.score > 100) && (error.score = "number between 1-100");
@@ -46,7 +46,7 @@ function CreateRecipe() {
 
     const dispatch = useDispatch();
 
-    const handleOnChange = (e) => {
+    const handleOnChange = (e) => {        
         setInput(prevState => ({
             ...prevState,
             [e.target.name]: e.target.value
@@ -56,13 +56,12 @@ function CreateRecipe() {
         return Error
     }
 
-    const handleCheck = (e) => {
+    const handleCheck = (e) => {        
         if (e.target.checked && !Input.dietTypes.includes(e.target.value)) {
             setInput({
                 ...Input,
                 dietTypes: [...Input.dietTypes, e.target.value],
-            });
-        // console.log(e.target.value)
+            });        
         } else if (!e.target.checked) {
             setInput({
                 ...Input,
@@ -75,23 +74,21 @@ function CreateRecipe() {
     useEffect(()=> {
         dispatch(getAllDiets())
     }, [dispatch])
-    // console.log('Input ', Input)
 
     let handleSubmit = (e) => {
         e.preventDefault();
         if (Input.name && !Object.keys(Error).length) {
-            console.log(Input)
-            dispatch(createRec(Input));
-            console.log(Input)
-            // setInput({
-            //     name: '',
-            //     score: '',
-            //     summary: '',
-            //     instructions: '',
-            //     image: '',
-            //     dietTypes: []
-            // });
-            // window.location.reload();
+          
+            dispatch(createRec(Input));            
+            setInput({
+                name: '',
+                score: '',
+                summary: '',
+                instructions: '',
+                image: '',
+                dietTypes: []
+            });
+            window.location.reload();
             alert("recipe created !");
         } else {
             alert("... field required");
@@ -116,7 +113,7 @@ function CreateRecipe() {
                                 <input
                                     type="text"
                                     className="form-control  block w-72 px-2 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    key={Input.name}
+                                    key={Input.id}
                                     name='name'
                                     autoComplete="off"
                                     value={Input.name}
@@ -124,7 +121,6 @@ function CreateRecipe() {
                                     placeholder="Recipe Name" />
                             </div>
                             {Error.name && <p className="text-xs text-center text-red-500">{Error.name}</p>}
-
 
                             <div>
                                 <div className="form-group flex flex-row  items-center justify-between pt-2">
@@ -137,7 +133,7 @@ function CreateRecipe() {
                                         autoComplete="off"
                                         value={Input.summary}
                                         onChange={handleOnChange}
-                                        placeholder="Recipe Name" />
+                                        placeholder="Summary" />
                                 </div>
                                 {Error.summary && <p className="text-xs text-center text-red-500">{Error.summary}</p>}
 
@@ -157,7 +153,7 @@ function CreateRecipe() {
                                     onChange={handleOnChange}
                                     placeholder="URL image (opcional)" />
                             </div>
-                            {Error.image && <p className="text-xs text-center text-red-500" >{Error.image}</p>}
+                            {/* {Error.image && <p className="text-xs text-center text-red-500" >{Error.image}</p>} */}
 
                             <div className="form-group flex flex-row  items-center justify-between pt-2">
                                 <label className=' text-yellow-900 font-medium text-sm tracking-tighter'>Instructions</label>
