@@ -1,5 +1,4 @@
 import axios from "axios";
-// import CreateRecipe from "../../components/pages/CreateRecipe.jsx";
 import { getAllRecipes, searchRecipes, getDiets, searchRecipeById } from "../reducers/recipesSlice.js";
 
 
@@ -26,8 +25,6 @@ export const searchRecipeId = (id) => (dispatch) => {
 
 
 export const getAllDiets = () => (dispatch) => {
-    // axios("https://rickandmortyapi.com/api/character")
-    // axios("https://apifood.herokuapp.com/recipes")
     axios("https://api-food2.herokuapp.com/types")
     // axios("http://localhost:3001/types")
         .then(res => { dispatch(getDiets(res.data)) })
@@ -41,9 +38,6 @@ export const createRec = (payload) => {
                 "https://api-food2.herokuapp.com/createrecipe",
                 payload
             );
-
-            // dispatch(CreateRecipe(response))
-            // return dispatch({ type: "CREATE_RECIPE", payload: response });
         } catch (error) {
             console.log(error);
         }
