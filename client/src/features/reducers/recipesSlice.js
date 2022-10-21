@@ -73,13 +73,20 @@ export const recipesSlice = createSlice({
         state.recipes.sort((a, b) => a.score - b.score);
         // state.recipes.sort((a, b) => a.score - b.score);
       }
+    },
+    
+    cleanrecipesId: (state, action) => {
+        action.payload=''
+        console.log('action.payload',action.payload)
+        state.recipesId= action.payload
+    
     }
-
+    
   
 },
 
 });
 
-export const { getAllRecipes, searchRecipes, getDiets, toggleLoadingRecipes, filterTypes, filterByName, filterByOrder, searchRecipeById } = recipesSlice.actions
+export const { getAllRecipes, searchRecipes, getDiets, toggleLoadingRecipes, filterTypes, cleanrecipesId, filterByName, filterByOrder, searchRecipeById } = recipesSlice.actions
 
 export default recipesSlice.reducer;

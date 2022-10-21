@@ -20,7 +20,7 @@ module.exports = {
           900: '#000303',
         },
         spacing: {
-          '128': '28rem',
+          '128': '32rem',
         },
       },
       boxShadow: {
