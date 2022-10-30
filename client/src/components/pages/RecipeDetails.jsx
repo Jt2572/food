@@ -12,14 +12,19 @@ const RecipeDetails = () => {
     useEffect(() => {
         return () => {
             dispatch(cleanrecipesId())
+            
+                // const scr = window.scrollY
+                window.scrollTo (0,500)
+            
+            
         }
     }, [dispatch])
 
     return (
         <div>
+            
             {recipesId && recipesId.map(r => (<>
                 <div className="bg-yellow-900 w-full h-48 absolute ">''</div>
-
 
                 {/* <div className="w-[30rem] flex flex-col items-center">                   
                 {recipesId && recipesId.map(r => (<>
@@ -45,7 +50,7 @@ const RecipeDetails = () => {
 
 
                 </div>
-
+       
                 <div className="relative w-full flex flex-col items-center pt-4  sm:relative 
                         lg:absolute  lg:w-8/12 lg:ml-96 lg:pl-0 lg:-mt-8">
                     <div className=" text-center text-base text-yellow-900 leading-12 mb-2 font-semibold tracking-tight  ">Diets</div>
