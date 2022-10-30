@@ -8,15 +8,15 @@ import SearchBar from "../searchbar/SearchBar";
 
 function Filters() {
 
-  const [screenWidth, setScreenWidth] = useState(1240)
+  // const [screenWidth, setScreenWidth] = useState(1240)
   const diets = useSelector(state => state.recipes.diets)
   const [, setPage] = useState(1)
 
   window.addEventListener("resize", function () {
     document.getElementById("demo")
-    setScreenWidth(window.innerWidth)
+    // setScreenWidth(window.innerWidth)
   })
-  console.log(screenWidth)
+  // console.log(screenWidth)
 
   const dispatch = useDispatch()
 
