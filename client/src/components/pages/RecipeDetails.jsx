@@ -11,11 +11,7 @@ const RecipeDetails = () => {
 
     useEffect(() => {
         return () => {
-            dispatch(cleanrecipesId())
-            
-                // const scr = window.scrollY
-                window.scrollTo (0,500)
-            
+            dispatch(cleanrecipesId())                       
             
         }
     }, [dispatch])
