@@ -2,20 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getRecipes, searchRecipeId } from "../../features/reducers/recipesActions";
+import ArrowUp from "../arrowUp/arrowUp";
 
 function Recipes() {
   const dispatch = useDispatch()
   const { recipes } = useSelector(state => state.recipes)
-  
-
   const [page, setPage] = useState(1);
   const recipesPerPage = 9;
   const end = page * recipesPerPage;
   const start = end - recipesPerPage;
   const totalPages = Math.ceil(recipes.length / recipesPerPage)
-  var currentRecipes = {}
 
   const [ScreenY,] = useState( document.documentElement.scrollTop = 400)
+  
+  var currentRecipes = {}
+
   
   try {
 
@@ -24,6 +25,9 @@ function Recipes() {
   } catch (error) {
     console.log(error.message)
   }
+
+
+
 
 
   useEffect(() => {
@@ -55,27 +59,7 @@ function Recipes() {
   }
 
 
-  const [UpButton] = document.getElementsByName("UpButton")
-  UpButton&&UpButton.addEventListener("click", scrollUp);
-
-  function scrollUp() {
-    var currentScroll = document.documentElement.scrollTop;
-    if (currentScroll > 0) {
-      window.requestAnimationFrame(scrollUp);
-      window.scrollTo(0, currentScroll - (currentScroll / 75))
-    }
-  }
-
-
-
-  window.onscroll = function () {
-    var scroll = document.documentElement.scrollTop;
-    if (scroll > 500) {
-      UpButton&& (UpButton.style.transform = "scale(1)")
-    } else {
-      UpButton&&(UpButton.style.transform = "scale(0)")
-    }
-  }
+  
 
   return (
     <div className="relative">
@@ -136,10 +120,7 @@ function Recipes() {
 
         </div>
         {ScreenY > 350 && currentRecipes.length &&
-          <div name="UpButton" className="flex justify-end w-full z-10  fixed bottom-16 ">
-            <div name="UpButton" className=" bg-amber-500 rounded pl-[.35rem] pr-[.35rem] pt-[.15rem] pb-[.15rem] mr-8 cursor-pointer select-none	hover:scale-150 hover:transition ease-in-out delay-150 ">^</div>
-          </div>
-
+         <ArrowUp ScreenY={ScreenY}/>
         }
       </div>
 
