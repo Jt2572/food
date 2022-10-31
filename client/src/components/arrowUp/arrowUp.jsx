@@ -1,41 +1,33 @@
-import { useEffect } from "react";
+import { useState } from "react";
 
-const ArrowUp = ({ScreenY}) => {
+const ArrowUp = () => {
 
+  const [visible, setVisible] = useState(false)
 
-    const [UpButton] = document.getElementsByName("UpButton")
-    UpButton&&UpButton.addEventListener("click", scrollUp);
-  
-    function scrollUp() {
-      var currentScroll = document.documentElement.scrollTop;
-      if (currentScroll > 0) {
-        window.requestAnimationFrame(scrollUp);
-        window.scrollTo(0, currentScroll - (currentScroll / 75))
-      }
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 300) {
+      setVisible(true)
     }
-  
-  
-  
-    window.onscroll = function () {
-      var scroll = document.documentElement.scrollTop;
-      if (scroll > 500) {
-        UpButton&&(UpButton.style.transform = "scale(1)")
-      } else {
-        UpButton&&(UpButton.style.transform = "scale(0)")
-      }
+    else if (scrolled <= 300) {
+      setVisible(false)
     }
+  };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
-    useEffect(()=>{
-        console.log('ScreenY ',ScreenY)
-    },[ScreenY])
+  window.addEventListener('scroll', toggleVisible);
 
-    return (
-        <div name="UpButton" className="flex justify-end w-full z-10  fixed bottom-16 ">
-            <div name="UpButton" className=" bg-amber-500 rounded pl-[.35rem] pr-[.35rem] pt-[.15rem] pb-[.15rem] mr-8 cursor-pointer select-none	hover:scale-150 hover:transition ease-in-out delay-150 ">^</div>
-        </div>
-
-    )
+  return (
+    <div name="UpButton" className="flex justify-end w-full z-10  fixed bottom-16 " onClick={scrollToTop} style={{ display: visible ? 'flex' : 'none' }} >
+      <div name="UpButton" className=" bg-amber-500 rounded pl-[.35rem] pr-[.35rem] pt-[.15rem] pb-[.15rem] mr-8 cursor-pointer select-none	hover:scale-150 hover:transition ease-in-out delay-150 ">^</div>
+    </div>
+  )
 
 }
 

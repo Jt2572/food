@@ -13,11 +13,8 @@ function Recipes() {
   const start = end - recipesPerPage;
   const totalPages = Math.ceil(recipes.length / recipesPerPage)
 
-  const [ScreenY,] = useState( document.documentElement.scrollTop = 400)
-  
   var currentRecipes = {}
 
-  
   try {
 
     currentRecipes = recipes?.slice(start, end);
@@ -25,9 +22,6 @@ function Recipes() {
   } catch (error) {
     console.log(error.message)
   }
-
-
-
 
 
   useEffect(() => {
@@ -59,15 +53,10 @@ function Recipes() {
   }
 
 
-  
-
   return (
     <div className="relative">
 
       <div className="flex flex-col items-center  ">
-        {/* {window.scrollBy(0, 10)} */}
-
-
 
         {(typeof currentRecipes[0] === "object") ?
 
@@ -105,23 +94,21 @@ function Recipes() {
           </div>
 
           :
-          
+
           <div class="flex items-center justify-center h-[25rem] ">
             <div class="border-t-transparent border-solid animate-spin  rounded-full border-yellow-900 border-8 h-16 w-16"></div>
           </div>
-          // <div className="">no recipe with that name found</div>
 
         }
-
 
         <div value={page} className='flex justify-center p-4'>
 
           {renderPages}
 
         </div>
-        {ScreenY > 350 && currentRecipes.length &&
-         <ArrowUp ScreenY={ScreenY}/>
-        }
+
+        <ArrowUp />
+
       </div>
 
 
