@@ -28,8 +28,8 @@ module.exports = {
       }
     },
     fontFamily: {      
-      bgs: ['Bell Gothic Std', 'serif'],
-      dancing: ['Dancing Script'],
+      bgs: ['Bell Gothic Std', 'serif'],      
+      dancing: ['Dancing Script', 'Serif'],
       castle: ['Castle', 'serif'],
       nova:['NovaMono', 'sans-serif']
     },
