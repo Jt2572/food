@@ -7,11 +7,11 @@ export default function Landing () {
     const navigate = useNavigate();
     return (
         <>
-        <section className="absolute  sm:relative px-28 py-12 ">
+        <section className="absolute  sm:relative px-28 py-16 ">
           <img
-            className="absolute inset-0 object-[7%] sm:object-[25%]  object-cover w-full h-full   "
+            className="absolute inset-0 object-[5%] object-cover w-full h-full sm:object-[25%]     "
             src={`${background}?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200`}
-            alt="Couple on a bed with a dog"
+            alt="background"
           />
           
           <div className="hidden  sm:block sm:inset-0 sm:relative " />
