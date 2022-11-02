@@ -30,9 +30,9 @@ const RecipeDetails = () => {
 
                     <img src={r.image} alt='recipeImage' className="md:w-96 md:mt-16 lg:w-[24rem] mt-16 rounded-lg" />
 
-                    <div className="  z-10 w-[35rem] mt-8  md:mt-8 pl-12 pr-12 
+                    <div className="  z-10 w-[35rem] mt-8  md:mt-8 pl-12 pr-12  
                                         lg:ml-24 lg:-mt-40 lg:w-6/12 lg:h-28 lg:flex lg:items-center lg:justify-center ">
-                        <div className="text-4xl relative text-center pt-0 w-full pr-4 font-dancing text-white mb-2 font-semibold tracking-tight   md:h-12  lg:text-4xl lg:leading-tight lg:w-auto lg:pr-4 lg:pl-4  ">{r.name}</div>
+                        <div className="text-4xl relative text-center pt-0 w-full pr-4 font-dancing text-white mb-2 font-light tracking-tight   md:h-12  lg:text-4xl lg:leading-tight lg:w-auto lg:pr-4 lg:pl-4  ">{r.name}</div>
                     </div>
 
                 </div>
