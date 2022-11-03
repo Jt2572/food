@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import background from '../../assets/bg-landing.png'
 import Carousel from '../carousel/Carousel';
 import {
@@ -13,16 +13,20 @@ import { SiPostgresql, SiExpress, SiSequelize, SiTailwindcss } from "react-icons
 
 import ArrowUp from '../arrowUp/arrowUp';
 import Header from '../header/Header';
-
-
+import { searchRecipeName } from '../../features/reducers/recipesActions';
+import { useDispatch } from 'react-redux';
 
 
 
 export default function Landing() {
   const navigate = useNavigate();
+  
+  const dispatch=useDispatch()
+  
+
 
   const socials = [
-
+    
     {
       id: 1,
       icon: <FaLinkedinIn size={'1.25em'}/>,
@@ -51,12 +55,12 @@ export default function Landing() {
       id: 2,
       icon: <FaNodeJs size={'2em'} />,
     },
-
+    
     {
       id: 6,
       icon: <SiExpress size={'2em'} />,
     },
-
+    
     {
       id: 3,
       icon: <SiPostgresql size={'2em'}/>,
@@ -66,15 +70,20 @@ export default function Landing() {
       id: 4,
       icon: <SiSequelize size={'2em'}/>,
     },
-
+    
     {
       id: 5,
       icon: <SiTailwindcss size={'2em'}/>,
     }
   ]
 
-
-
+  const handleDetails = (e) => {
+    console.log(e.target.innerText)
+    // searchRecipeName(e.target.innerText)
+    dispatch(searchRecipeName(e.target.innerText))
+    
+  }
+  
   return (
     <>
       <Header />
@@ -128,11 +137,12 @@ export default function Landing() {
 
 
       <div className='px-20 text-center h-24 text-xl text-orange-100 flex justify-center font-monserrat items-center bg-orange-600'> Enjoy the best recipes from all around the world</div>
+<Link to={'/details'}>
 
-      <div className='p-0 lg:p-8'>
-        <Carousel  />
+      <div className='p-0 lg:p-8' onClick={(e) => handleDetails(e)}>
+        <Carousel />
       </div>
-
+</Link>
 
       <section name="footer" className='text-xs p-4 text-slate-300  flex  flex-col justify-center items-center bg-slate-900 h-auto w-full'>
         

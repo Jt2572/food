@@ -5,7 +5,7 @@ import { cleanrecipesId } from "../../features/reducers/recipesSlice";
 import ArrowUp from "../arrowUp/arrowUp";
 
 const RecipeDetails = () => {
-    const { recipesId } = useSelector(state => state.recipes)
+    const { recipes } = useSelector(state => state.recipes)
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const RecipeDetails = () => {
     return (
         <div>
 
-            {recipesId && recipesId.map(r => (<>
+            {recipes && recipes.map(r => (<>
                 <div className="bg-yellow-900 w-full h-40 absolute -mt-8 " />
 
                 <div className="  w-full items-center flex flex-col-reverse   sm:w-full sm:items-center sm:flex  sm:flex-col-reverse   
