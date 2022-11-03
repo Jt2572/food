@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createRec, getAllDiets } from '../../features/reducers/recipesActions';
+import Footer from '../footer/footer';
 
 
 
@@ -219,6 +220,7 @@ function CreateRecipe() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
