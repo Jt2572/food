@@ -13,7 +13,7 @@ import { SiPostgresql, SiExpress, SiSequelize, SiTailwindcss } from "react-icons
 
 import ArrowUp from '../arrowUp/arrowUp';
 import Header from '../header/Header';
-import { searchRecipeName } from '../../features/reducers/recipesActions';
+import { searchRecipeId } from '../../features/reducers/recipesActions';
 import { useDispatch } from 'react-redux';
 
 
@@ -78,8 +78,12 @@ export default function Landing() {
   ]
 
   const handleDetails = (e) => {
-    // searchRecipeName(e.target.innerText)
-    dispatch(searchRecipeName(e.target.innerText))
+    console.log(e)
+    // console.log(e.target.outerText)
+
+    // dispatch(searchRecipeId('5ae3fd43-5729-11ed-8cf0-893348aefe88'))
+    dispatch(searchRecipeId(e.target.innerText))
+    // dispatch(searchRecipeName(e.target.innerText))
     
   }
   
