@@ -29,6 +29,8 @@ module.exports = {
     },
     fontFamily: {      
       bgs: ['Bell Gothic Std', 'serif'],      
+      monserrat: ['Montserrat', 'Serif'],
+      vibes: ['Great Vibes', 'Serif'],
       dancing: ['Dancing Script', 'Serif'],
       castle: ['Castle', 'serif'],
       nova:['NovaMono', 'sans-serif']
