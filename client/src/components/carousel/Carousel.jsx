@@ -246,7 +246,6 @@ export default function Carousel() {
                           Cooker Chicken Taco Soup</h2>
                         </div>
 
-                        {/* Slow Cooker Chicken Taco Soup */}
                       </div>
                   </Slide>
                 </div>
