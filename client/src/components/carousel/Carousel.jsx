@@ -53,21 +53,22 @@ export default function Carousel() {
                   id="slider"
                   className="h-full flex lg:gap-2 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700"
                 >
-                  <Slide index={0}>
-                    <div className="flex flex-shrink-0 relative w-full sm:w-auto">
+                  <Slide index={0}  >
+                    <div  className="flex flex-shrink-0 relative w-full sm:w-auto">
                       <img
                         src="https://spoonacular.com/recipeImages/663559-312x231.jpg"
                         alt="alcatraz"
                         className="object-cover object-center w-full"
                       />
-                      <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                        <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Tomato and lentil soup
+                      <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">                        
+                        <h2  className="opacity-0 bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
+                        5ae49983-5729-11ed-8cf0-893348aefe88
                         </h2>
                       </div>
                     </div>
 
                   </Slide>
+
                   <Slide index={1}>
                     
                       <div className="flex flex-shrink-0 relative w-full sm:w-auto">
@@ -78,8 +79,8 @@ export default function Carousel() {
                         />
 
                         <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                          <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Style Baked Fish
+                          <h2 className="opacity-0 rounded-md p-1 text-xs leading-4  text-white">
+                          5ae44b61-5729-11ed-8cf0-893348aefe88
                           </h2>
                         </div>
 
@@ -97,8 +98,8 @@ export default function Carousel() {
                           className="object-cover object-center w-full"
                         />
                         <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                          <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Red Lentil Soup 
+                          <h2 className="opacity-0 rounded-md p-1 text-xs leading-4  text-white">
+                          5ae3fd45-5729-11ed-8cf0-893348aefe88
                           </h2>
                         </div>
 
@@ -116,8 +117,8 @@ export default function Carousel() {
                           className="object-cover object-center w-full"
                         />
                         <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                          <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Cheesy Chicken Enchilada
+                          <h2 className="opacity-0 rounded-md p-1 text-xs leading-4  text-white">
+                          5ae47276-5729-11ed-8cf0-893348aefe88
                           </h2>
                         </div>
 
@@ -133,9 +134,10 @@ export default function Carousel() {
                           className="object-cover object-center w-full"
                         />
                         <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                          <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Almond Joy Protein                          
+                          <h2 className="opacity-0 rounded-md p-1 text-xs leading-4  text-white">
+                          5ae4727b-5729-11ed-8cf0-893348aefe88                          
                           </h2>
+                          
                         </div>
 
                       </div>
@@ -149,8 +151,8 @@ export default function Carousel() {
                           className="object-cover object-center w-full"
                         />
                         <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                          <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Tomato Cheese Pizza                                                   
+                          <h2 className="opacity-0 rounded-md p-1 text-xs leading-4  text-white">
+                          5ae47275-5729-11ed-8cf0-893348aefe88                                                   
                           </h2>
                         </div>
 
@@ -166,8 +168,8 @@ export default function Carousel() {
                           className="object-cover object-center w-full"
                         />
                         <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                          <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Mango Quinoa Salad                                              
+                          <h2 className="opacity-0 rounded-md p-1 text-xs leading-4  text-white">
+                          5ae4727f-5729-11ed-8cf0-893348aefe88                                              
                           </h2>
                         </div>
 
@@ -182,8 +184,8 @@ export default function Carousel() {
                           className="object-cover object-center w-full"
                         />
                         <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                          <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Salmon with roasted vegetables                                                  
+                          <h2  className="opacity-0 rounded-md p-1 text-xs leading-4  text-white">
+                          5ae535c1-5729-11ed-8cf0-893348aefe88                                               
                           </h2>
                         </div>
 
@@ -198,8 +200,8 @@ export default function Carousel() {
                           className="object-cover object-center w-full"
                         />
                         <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                          <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Swiss Chard Wraps                                     
+                          <h2 className="opacity-0 rounded-md p-1 text-xs leading-4  text-white">
+                          5ae49981-5729-11ed-8cf0-893348aefe88                                
                           </h2>
                         </div>
 
@@ -213,8 +215,8 @@ export default function Carousel() {
                           className="object-cover object-center w-full"
                         />
                         <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                          <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Turmeric Potato Salad                                         
+                          <h2 className="opacity-0 rounded-md p-1 text-xs leading-4  text-white">
+                          5ae4998f-5729-11ed-8cf0-893348aefe88                                     
                           </h2>
                         </div>
 
@@ -228,8 +230,8 @@ export default function Carousel() {
                           className="object-cover object-center w-full"
                         />
                         <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                          <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Simple Skillet Lasagna</h2>
+                          <h2  className="opacity-0 rounded-md p-1 text-xs leading-4  text-white">
+                          5ae4e7a8-5729-11ed-8cf0-893348aefe88</h2>
                         </div>
 
                       </div>
@@ -242,8 +244,8 @@ export default function Carousel() {
                           className="object-cover object-center w-full"
                         />
                         <div className="absolute flex h-full w-full items-end justify-end pb-5 pr-4">
-                          <h2 name='Tomato and lentil soup' className="bg-gray-800 bg-opacity-30 rounded-md p-1 text-xs leading-4  text-white">
-                          Cooker Chicken Taco Soup</h2>
+                          <h2 className="opacity-0 rounded-md p-1 text-xs leading-4  text-white">
+                          5ae50ebe-5729-11ed-8cf0-893348aefe88</h2>
                         </div>
 
                       </div>
