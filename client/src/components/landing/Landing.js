@@ -78,7 +78,6 @@ export default function Landing() {
   ]
 
   const handleDetails = (e) => {
-    console.log(e.target.innerText)
     // searchRecipeName(e.target.innerText)
     dispatch(searchRecipeName(e.target.innerText))
     
