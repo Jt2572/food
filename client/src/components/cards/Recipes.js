@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getRecipes, searchRecipeId } from "../../features/reducers/recipesActions";
 import ArrowUp from "../arrowUp/arrowUp";
+import Footer from "../footer/footer";
+
 
 function Recipes() {
   const dispatch = useDispatch()
@@ -108,9 +110,10 @@ function Recipes() {
         </div>
 
         <ArrowUp />
-
+        
+        
+<Footer/>
       </div>
-
 
     </div>
   )

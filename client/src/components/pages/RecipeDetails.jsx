@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { cleanrecipesId } from "../../features/reducers/recipesSlice";
 import ArrowUp from "../arrowUp/arrowUp";
+import Footer from "../footer/footer";
 
 const RecipeDetails = () => {
 
@@ -22,6 +23,7 @@ const RecipeDetails = () => {
 
     return (
         <div>
+            <div>
 
             {recipesId && recipesId.map(r => (<>
                 <div className="bg-yellow-900 w-full h-40 absolute -mt-8 " />
@@ -69,11 +71,13 @@ const RecipeDetails = () => {
                         <button onClick={() => navigate('/home')} type="button" className="text-white text-sm bg-gradient-to-r from-amber-400 via-amber-600 to-amber-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-lg shadow-amber-500/50 dark:shadow-lg dark:shadow-amber-800/70 font-medium rounded-full text-md px-12 py-1.5 text-center mr-2 mb-2">home</button>
                     </div>
                 </div>
-
+                <Footer/>
                 <ArrowUp />
             </>
 
             ))}
+            </div>
+
 
         </div>
 
