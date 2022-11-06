@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import background from '../../assets/bg-landing.png'
 import Carousel from '../carousel/Carousel';
@@ -6,7 +6,7 @@ import Carousel from '../carousel/Carousel';
 
 import ArrowUp from '../arrowUp/arrowUp';
 import Header from '../header/Header';
-import { searchRecipeId } from '../../features/reducers/recipesActions';
+import { getRecipes, searchRecipeId } from '../../features/reducers/recipesActions';
 import { useDispatch } from 'react-redux';
 import Footer from '../footer/footer';
 
@@ -17,6 +17,10 @@ export default function Landing() {
   
   const dispatch=useDispatch()
   
+  useEffect(()=>{
+    dispatch(getRecipes())
+    
+  },[dispatch])
 
   const handleDetails = (e) => {
     console.log(e)
