@@ -6,16 +6,30 @@ export const recipesSlice = createSlice({
   name: "recipes",
   initialState: {
     recipes: [],
+    carouselImages:[],
     filterRecipes: [],
     recipesId: [],
+
     diets: [],
     loading: false,
   },
   reducers: {
     getAllRecipes: (state, action) => {
+      let recipesCarousel=[]
+      let i = 0
+      const carImgs = ()=> {
+        let num = Math.floor(Math.random()*100)
+        if (!(recipesCarousel.includes(num)))  {
+          recipesCarousel.push(num)        
+            i++
+        }    
+        (i !== 12)?  carImgs() : <></> 
+    }
+    carImgs();
+       
       state.recipes = action.payload;
       state.filterRecipes = action.payload
-      // console.log('action.payload ',action.payload)
+      state.carouselImages = recipesCarousel.map(i=>action.payload[i])
     },
     searchRecipes: (state, action) => {
       state.recipes = action.payload;

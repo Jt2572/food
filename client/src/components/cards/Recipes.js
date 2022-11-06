@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getRecipes, searchRecipeId } from "../../features/reducers/recipesActions";
+import { searchRecipeId } from "../../features/reducers/recipesActions";
 import ArrowUp from "../arrowUp/arrowUp";
 import Footer from "../footer/footer";
 
@@ -26,10 +26,6 @@ function Recipes() {
   }
 
 
-  useEffect(() => {
-    dispatch(getRecipes())
-
-  }, [dispatch])
 
 
   const pages = []
