@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { searchRecipeId } from "../../features/reducers/recipesActions";
+import { getRecipes, searchRecipeId } from "../../features/reducers/recipesActions";
 import ArrowUp from "../arrowUp/arrowUp";
 import Footer from "../footer/footer";
 
@@ -50,13 +50,16 @@ function Recipes() {
     dispatch(searchRecipeId(id))
   }
 
+  useEffect(()=>{
+    !recipes.length? dispatch(getRecipes()) : <></>
+  },[recipes,dispatch])
 
   return (
     <div className="relative">
 
-      <div className="flex flex-col items-center  ">
+      <div className="flex flex-col justify-center items-center  ">
 
-        {(typeof currentRecipes[0] === "object") ?
+        {(typeof recipes[0] === "object") ?
 
           <div className="grid grid-cols-1 sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 ">
 
@@ -93,8 +96,8 @@ function Recipes() {
 
           :
 
-          <div class="flex items-center justify-center h-[25rem] ">
-            <div class="border-t-transparent border-solid animate-spin  rounded-full border-yellow-900 border-8 h-16 w-16"></div>
+          <div className="flex items-center justify-center h-[25rem] ">
+            <div className="border-t-transparent border-solid animate-spin  rounded-full border-yellow-900 border-8 h-16 w-16"></div>
           </div>
 
         }
